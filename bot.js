@@ -1,7 +1,8 @@
 // imports
 const TelegramBot = require('node-telegram-bot-api');
-require('dotenv').config();
 const axios = require('axios');
+const he = require('he');
+require('dotenv').config();
 
 const TOKEN = process.env.BOT_TOKEN;
 const ENDPOINT = 'https://networkmigri.boost.ai/api/chat/v2';
@@ -18,7 +19,7 @@ bot.onText(/\/start/, (msg) => {
 // Handle user message
 bot.on('message', async (msg) => {
   const chatId = msg.chat.id;
-  const userMessage = msg.text;
+  const userMessage = he.decode(msg.text);
 
   const isValidFormat = /^(\d{4})\/(\d{3})\/(\d{4})$/.test(userMessage);
   // User input matches the desired format

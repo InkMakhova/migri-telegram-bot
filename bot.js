@@ -13,7 +13,7 @@ const bot = new TelegramBot(TOKEN, { polling: true });
 // Handle '/start' command
 bot.onText(/\/start/, (msg) => {
   const chatId = msg.chat.id;
-  bot.sendMessage(chatId, 'Hi! Enter your diary number like this: xxxx/xxx/xxxx');
+  bot.sendMessage(chatId, 'Enter your diary number like this: xxxx/xxx/xxxx');
 });
 
 // Handle user message

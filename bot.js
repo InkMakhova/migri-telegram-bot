@@ -21,7 +21,7 @@ bot.on('message', async (msg) => {
   const chatId = msg.chat.id;
   const userMessage = he.decode(msg.text);
 
-  const isValidFormat = /^(\d{4})\/(\d{3})\/(\d{4})$/.test(userMessage);
+  const isValidFormat = /^(\d{4,5})\/(\d{3})\/(\d{4})$/.test(userMessage);
   // User input matches the desired format
   if (isValidFormat) {
     // Start Kamu chatbot request
